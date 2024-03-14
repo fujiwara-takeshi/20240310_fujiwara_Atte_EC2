@@ -9,7 +9,12 @@
     <ul class="header__nav-list">
         <li class="header__nav-item"><a href="/">ホーム</a></li>
         <li class="header__nav-item"><a href="/attendance">日付一覧</a></li>
-        <li class="header__nav-item"><a href="#">ログアウト</a></li>
+        <li class="header__nav-item">
+            <form action="/logout" method="post">
+                @csrf
+                <button class="header-nav__logout-button">ログアウト</button>
+            </form>
+        </li>
     </ul>
 </nav>
 @endsection

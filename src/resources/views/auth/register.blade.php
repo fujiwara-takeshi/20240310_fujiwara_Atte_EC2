@@ -12,28 +12,28 @@
                 <h2 class="heading__title">会員登録</h2>
             </div>
             <div class="register__form">
-                <form class="form" action="" method="">
+                <form class="form" action="/register" method="post">
                     @csrf
                     <div class="form__item">
-                        <input class="form__item-input" type="text" name="name" placeholder="名前">
+                        <input class="form__item-input" type="text" name="name" value="{{ old('name') }}" placeholder="名前">
                         <div class="form__item-error">
 
                         </div>
                     </div>
                     <div class="form__item">
-                        <input class="form__item-input" type="text" name="email" placeholder="メールアドレス">
+                        <input class="form__item-input" type="email" name="email" value="{{ old('email') }}" placeholder="メールアドレス">
                         <div class="form__item-error">
 
                         </div>
                     </div>
                     <div class="form__item">
-                        <input class="form__item-input" type="text" name="password" placeholder="パスワード">
+                        <input class="form__item-input" type="password" name="password" placeholder="パスワード">
                         <div class="form__item-error">
 
                         </div>
                     </div>
                     <div class="form__item">
-                        <input class="form__item-input" type="text" name="" placeholder="確認用パスワード">
+                        <input class="form__item-input" type="password" name="password_confirmation" placeholder="確認用パスワード">
                         <div class="form__item-error">
 
                         </div>
