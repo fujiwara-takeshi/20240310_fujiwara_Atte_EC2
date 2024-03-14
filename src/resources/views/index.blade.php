@@ -23,12 +23,36 @@
             </div>
             <div class="index__stamps">
                 <div class="stamps__block">
-                    <div class="stamps__left-box">勤務開始</div>
-                    <div class="stamps__right-box">勤務終了</div>
+                    <div class="stamp__box">
+                        <form class="stamp__form" action="" method="">
+                            @csrf
+                            <input type="hidden" name="">
+                            <button class="stamp__button">勤務開始</button>
+                        </form>
+                    </div>
+                    <div class="stamp__box">
+                        <form class="stamp__form" action="" method="">
+                            @csrf
+                            <input type="hidden" name="">
+                            <button class="stamp__button">勤務終了</button>
+                        </form>
+                    </div>
                 </div>
                 <div class="stamps__block">
-                    <div class="stamps__left-box">休憩開始</div>
-                    <div class="stamps__right-box">休憩終了</div>
+                    <div class="stamp__box">
+                        <form class="stamp__form" action="" method="">
+                            @csrf
+                            <input type="hidden" name="">
+                            <button class="stamp__button">休憩開始</button>
+                        </form>
+                    </div>
+                    <div class="stamp__box">
+                        <form class="stamp__form" action="" method="">
+                            @csrf
+                            <input type="hidden" name="">
+                            <button class="stamp__button">休憩終了</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

@@ -22,7 +22,7 @@
 }
 
 .index__wrapper {
-    width: 80%;
+    width: 70%;
     margin: 0 auto;
 }
 
@@ -36,3 +36,37 @@
     font-size: 24px;
 }
 
+.index__stamps {
+    width: 100%;
+}
+
+.stamps__block {
+    width: 100%;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.stamp__box {
+    width: 48%;
+    position: relative;
+}
+
+.stamp__box::before {
+    content: "";
+    padding-top: 45%;
+    display: block;
+}
+
+.stamp__button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+}
