@@ -34,6 +34,11 @@
 
 .form__item {
     width: 100%;
+    margin-top: 30px;
+}
+
+.form__item:first-of-type {
+    margin-top: 0;
 }
 
 .form__item-input {
@@ -46,8 +51,7 @@
 
 .form__item-error {
     width: 100%;
-    height: 30px;
-    padding: 12px;
+    padding: 0 12px;
     color: red;
 }
 
