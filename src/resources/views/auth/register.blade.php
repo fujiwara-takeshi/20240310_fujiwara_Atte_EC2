@@ -17,25 +17,33 @@
                     <div class="form__item">
                         <input class="form__item-input" type="text" name="name" value="{{ old('name') }}" placeholder="名前">
                         <div class="form__item-error">
-
+                            @error('name')
+                            {{ $message }}
+                            @enderror
                         </div>
                     </div>
                     <div class="form__item">
-                        <input class="form__item-input" type="email" name="email" value="{{ old('email') }}" placeholder="メールアドレス">
+                        <input class="form__item-input" type="text" name="email" value="{{ old('email') }}" placeholder="メールアドレス">
                         <div class="form__item-error">
-
+                            @error('email')
+                            {{ $message }}
+                            @enderror
                         </div>
                     </div>
                     <div class="form__item">
-                        <input class="form__item-input" type="password" name="password" placeholder="パスワード">
+                        <input class="form__item-input" type="text" name="password" placeholder="パスワード">
                         <div class="form__item-error">
-
+                            @error('password')
+                            {{ $message }}
+                            @enderror
                         </div>
                     </div>
                     <div class="form__item">
-                        <input class="form__item-input" type="password" name="password_confirmation" placeholder="確認用パスワード">
+                        <input class="form__item-input" type="text" name="password_confirmation" placeholder="確認用パスワード">
                         <div class="form__item-error">
-
+                            @error('password_confirmation')
+                            {{ $message }}
+                            @enderror
                         </div>
                     </div>
                     <div class="form__item">
