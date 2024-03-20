@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AttendanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +15,10 @@ use App\Http\Controllers\AuthController;
 */
 
 Route::middleware('auth')->group(function () {
-    Route::get('/', [AuthController::class, 'index']);
-    Route::get('/attendance', [AuthController::class, 'date']);
+    Route::get('/', [AttendanceController::class, 'index']);
+    Route::get('/start', [AttendanceController::class, 'start']);
+    Route::get('/end' , [AttendanceController::class, 'end']);
+    Route::get('/break-start', [AttendanceController::class, 'breakStart']);
+    Route::get('/break-end', [AttendanceController::class, 'breakEnd']);
+    Route::get('/attendance', [AttendanceController::class, 'date']);
 });
