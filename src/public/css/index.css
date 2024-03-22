@@ -2,11 +2,11 @@
     display: flex;
 }
 
-.header__nav-item:not(:last-child) {
+.header-nav__item:not(:last-child) {
     margin-right: 50px;
 }
 
-.header__nav-item a {
+.header-nav__item a {
     color: inherit;
     text-decoration: none;
 }
@@ -77,4 +77,8 @@
     background-color: #fff;
     border: none;
     cursor: pointer;
+}
+
+.stamp__button:disabled {
+    cursor: not-allowed;
 }
