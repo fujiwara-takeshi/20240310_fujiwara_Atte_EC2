@@ -15,10 +15,12 @@ use App\Http\Controllers\AttendanceController;
 */
 
 Route::middleware('auth')->group(function () {
-    Route::get('/', [AttendanceController::class, 'index']);
-    Route::get('/start', [AttendanceController::class, 'start']);
-    Route::get('/end' , [AttendanceController::class, 'end']);
-    Route::get('/break-start', [AttendanceController::class, 'breakStart']);
-    Route::get('/break-end', [AttendanceController::class, 'breakEnd']);
-    Route::get('/attendance', [AttendanceController::class, 'date']);
+    Route::controller(AttendanceController::class)->group(function() {
+        Route::get('/', 'index');
+        Route::post('/start', 'start');
+        Route::put('/end', 'end');
+        Route::post('/break-start', 'breakStart');
+        Route::put('/break-end', 'breakEnd');
+        Route::get('/attendance', 'date');
+    });
 });
