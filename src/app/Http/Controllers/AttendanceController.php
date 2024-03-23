@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use App\Models\User;
 use App\Models\Attendance;
 use App\Models\BreakTime;
 
@@ -96,7 +97,8 @@ class AttendanceController extends Controller
 
     public function date()
     {
-        return view('date');
+        $attendances = Attendance::with('user', 'breakTimes')->get();
+        return view('date', compact('attendances'));
     }
 
     public function attendanceStatus($attendance)

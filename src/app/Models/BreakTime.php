@@ -14,4 +14,6 @@ class BreakTime extends Model
         'start_time',
         'end_time',
     ];
+
+    protected $dates = ['start_time', 'end_time'];
 }

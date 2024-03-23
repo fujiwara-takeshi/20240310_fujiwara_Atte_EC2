@@ -36,39 +36,36 @@
                         <th>勤務時間</th>
                     </tr>
                     <tr class="table__row">
-                        <td>テスト太郎</td>
-                        <td>10:00:00</td>
-                        <td>20:00:00</td>
-                        <td>00:30:00</td>
-                        <td>09:30:00</td>
-                    </tr>
-                    <tr class="table__row">
-                        <td>テスト太郎</td>
-                        <td>10:00:00</td>
-                        <td>20:00:00</td>
-                        <td>00:30:00</td>
-                        <td>09:30:00</td>
-                    </tr>
-                    <tr class="table__row">
-                        <td>テスト太郎</td>
-                        <td>10:00:00</td>
-                        <td>20:00:00</td>
-                        <td>00:30:00</td>
-                        <td>09:30:00</td>
-                    </tr>
-                    <tr class="table__row">
-                        <td>テスト太郎</td>
-                        <td>10:00:00</td>
-                        <td>20:00:00</td>
-                        <td>00:30:00</td>
-                        <td>09:30:00</td>
-                    </tr>
-                    <tr class="table__row">
-                        <td>テスト太郎</td>
-                        <td>10:00:00</td>
-                        <td>20:00:00</td>
-                        <td>00:30:00</td>
-                        <td>09:30:00</td>
+                        @foreach($attendances as $attendance)
+                            <td>{{ $attendance['user']['name'] }}</td>
+                            <td>{{ $attendance['start_time']->format('H:i:s') }}</td>
+                            @if($attendance['end_time'])
+                                <td>{{ $attendance['end_time']->format('H:i:s') }}</td>
+                            @else
+                                <td></td>
+                            @endif
+                            <td>
+                                @php
+                                    $break_time = Carbon::createFromTime(0, 0, 0);
+                                    foreach ($attendance['breakTimes'] as $break) {
+                                        if ($break['end_time']) {
+                                            $seconds = $break['end_time']->diffInSeconds($break['start_time']);
+                                            $break_time->addSeconds($seconds);
+                                        }
+                                    }
+                                    echo $break_time->format('H:i:s');
+                                @endphp
+                            </td>
+                            @if($attendance['end_time'])
+                                @php
+                                    $total_seconds = $attendance['end_time']->diffInSeconds($attendance['start_time']) - $break_time->seconds;
+                                    $formatted_time = Carbon::createFromTime(0, 0, 0)->addSeconds($total_seconds)->format('H:i:s');
+                                @endphp
+                                <td>{{ $formatted_time }}</td>
+                            @else
+                                <td></td>
+                            @endif
+                        @endforeach
                     </tr>
                 </table>
             </div>
