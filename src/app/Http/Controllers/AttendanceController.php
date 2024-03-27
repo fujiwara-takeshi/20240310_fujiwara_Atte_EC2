@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Pagination\Paginator;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Attendance;
@@ -95,10 +96,13 @@ class AttendanceController extends Controller
         return redirect('/');
     }
 
-    public function date()
+    public function date($key = "0")
     {
-        $attendances = Attendance::with('user', 'breakTimes')->get();
-        return view('date', compact('attendances'));
+        $dates = Attendance::distinct()->select('date')->orderBy('date','desc')->pluck('date');
+        $dates_count = count($dates);
+        $selected_date = $dates[$key];
+        $attendances = Attendance::where('date', $selected_date)->with('user', 'breakTimes')->orderBy('start_time','desc')->Paginate(5);
+        return view('date', compact('key', 'dates_count', 'selected_date', 'attendances'));
     }
 
     public function attendanceStatus($attendance)
