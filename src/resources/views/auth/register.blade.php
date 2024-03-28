@@ -5,13 +5,13 @@
 @endsection
 
 @section('content')
-<div class="register">
-    <div class="register__inner">
-        <div class="register__wrapper">
-            <div class="register__heading">
+<div class="content">
+    <div class="content__inner">
+        <div class="content__wrapper">
+            <div class="content__heading">
                 <h2 class="heading__title">会員登録</h2>
             </div>
-            <div class="register__form">
+            <div class="content__register-form">
                 <form class="form" action="/register" method="post">
                     @csrf
                     <div class="form__item">
@@ -51,8 +51,8 @@
                     </div>
                 </form>
             </div>
-            <div class="register__link">
-                <p class="link__information-text">アカウントをお持ちの方はこちらから</p>
+            <div class="content__link">
+                <p class="link__information">アカウントをお持ちの方はこちらから</p>
                 <a class="link__login" href="/login">ログイン</a>
             </div>
         </div>

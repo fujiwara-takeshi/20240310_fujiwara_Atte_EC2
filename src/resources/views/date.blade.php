@@ -5,9 +5,9 @@
 <link rel="stylesheet" href="{{ asset('css/date.css') }}">
 @endsection
 
-@section('header__nav')
-<nav class="header__nav">
-    <ul class="header__nav-list">
+@section('header-nav')
+<nav class="header-nav">
+    <ul class="header-nav__list">
         <li class="header-nav__item"><a href="/">ホーム</a></li>
         <li class="header-nav__item"><a href="/attendance">日付一覧</a></li>
         <li class="header-nav__item">
@@ -21,10 +21,10 @@
 @endsection
 
 @section('content')
-<div class="date">
-    <div class="date__inner">
-        <div class="date__wrapper">
-            <div class="date__heading-pagination">
+<div class="content">
+    <div class="content__inner">
+        <div class="content__wrapper">
+            <div class="content__heading-pagination">
                 <nav>
                     <ul class="pagination_date">
                         {{-- Previous Page Link --}}
@@ -42,7 +42,7 @@
 
                         {{-- Next Page Link --}}
                         @if ($key == $dates_count - 1)
-                            <li class="page-item disabled" disabled aria-disabled="true">
+                            <li class="page-item disabled"  aria-disabled="true">
                                 <span class="page-link">＞</span>
                             </li>
                         @else
@@ -53,7 +53,7 @@
                     </ul>
                 </nav>
             </div>
-            <div class="date__attendance-records">
+            <div class="content__attendance-records">
                 <table class="attendance__table">
                     <tr class="table__row">
                         <th>名前</th>
@@ -64,39 +64,16 @@
                     </tr>
                     @foreach($attendances as $attendance)
                         <tr class="table__row">
-                            <td>{{ $attendance['user']['name'] }}</td>
-                            <td>{{ $attendance['start_time']->format('H:i:s') }}</td>
-                            @if($attendance['end_time'])
-                                <td>{{ $attendance['end_time']->format('H:i:s') }}</td>
-                            @else
-                                <td></td>
-                            @endif
-                            <td>
-                                @php
-                                    $break_time = Carbon\Carbon::createFromTime(0, 0, 0);
-                                    foreach ($attendance['breakTimes'] as $break) {
-                                        if ($break['end_time']) {
-                                            $seconds = $break['end_time']->diffInSeconds($break['start_time']);
-                                            $break_time->addSeconds($seconds);
-                                        }
-                                    }
-                                    echo $break_time->format('H:i:s');
-                                @endphp
-                            </td>
-                            @if($attendance['end_time'])
-                                @php
-                                    $total_seconds = $attendance['end_time']->diffInSeconds($attendance['start_time']) - $break_time->secondsSinceMidnight();
-                                    $formatted_time = Carbon\Carbon::createFromTime(0, 0, 0)->addSeconds($total_seconds)->format('H:i:s');
-                                @endphp
-                                <td>{{ $formatted_time }}</td>
-                            @else
-                                <td></td>
-                            @endif
+                            <td>{{ $attendance->user->name }}</td>
+                            <td>{{ $attendance->start_time->format('H:i:s') }}</td>
+                            <td>{{ $attendance->end_time ? $attendance->end_time->format('H:i:s') : '' }}</td>
+                            <td>{{ $attendance->break_time }}</td>
+                            <td>{{ $attendance->working_time }}</td>
                         </tr>
                     @endforeach
                 </table>
             </div>
-            <div class="date__bottom-pagination">
+            <div class="content__bottom-pagination">
                 <div class="pagination-attendances">
                     {{ $attendances->links('vendor.pagination.bootstrap-4') }}
                 </div>

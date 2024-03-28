@@ -17,8 +17,8 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(10)->create()->each(function($user) {
-            Attendance::factory(10)->create(['user_id' => $user->id])->each(function ($attendance) {
+        User::factory(100)->create()->each(function($user) {
+            Attendance::factory(300)->create(['user_id' => $user->id])->each(function ($attendance) {
                 BreakTime::factory(rand(0, 2))->create(['attendance_id' => $attendance->id]);
             });
         });

@@ -1,4 +1,4 @@
-.header__nav-list {
+.header-nav__list {
     display: flex;
     align-items: center;
     margin: 0;
@@ -21,22 +21,22 @@
     cursor: pointer;
 }
 
-.date {
+.content {
     width: 100%;
     margin-top: 80px;
 }
 
-.date__inner {
+.content__inner {
     max-width: 1230px;
     margin: 0 auto;
 }
 
-.date__wrapper {
+.content__wrapper {
     width: 80%;
     margin: 0 auto;
 }
 
-.date__heading-pagination {
+.content__heading-pagination {
     width: 100%;
     padding: 30px 0;
     text-align: center;
@@ -47,10 +47,9 @@
     align-items: center;
 }
 
-.page-link {
+.pagination_date .page-link {
     padding: 0 6px;
     font-size: 14px;
-    font-weight: bold;
 }
 
 .selected_date {
@@ -58,7 +57,7 @@
     font-size: 20px;
 }
 
-.date__attendance-records {
+.content__attendance-records {
     width: 100%;
 }
 
@@ -74,10 +73,11 @@
 
 .table__row th,
 .table__row td {
+    width: 20%;
     padding: 20px 0 20px 30px;
 }
 
-.date__bottom-pagination {
+.content__bottom-pagination {
     width: 100%;
     padding: 30px 0 0;
     text-align: center;
