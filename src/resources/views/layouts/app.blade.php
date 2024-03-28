@@ -17,7 +17,7 @@
                 <div class="header__logo">Atte</div>
             </div>
             <div class="header__inner-right">
-                @yield('header__nav')
+                @yield('header-nav')
             </div>
         </div>
     </header>

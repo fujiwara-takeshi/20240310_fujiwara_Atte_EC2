@@ -14,13 +14,17 @@ use App\Http\Controllers\AttendanceController;
 |
 */
 
-Route::middleware('auth')->group(function () {
-    Route::controller(AttendanceController::class)->group(function() {
-        Route::get('/', 'index');
-        Route::post('/start', 'start');
-        Route::put('/end', 'end');
-        Route::post('/break-start', 'breakStart');
-        Route::put('/break-end', 'breakEnd');
-        Route::get('/attendance', 'date');
+Route::controller(AttendanceController::class)->group(function() {
+    Route::middleware('auth')->group(function () {
+        Route::prefix('/')->group(function() {
+            Route::get('', 'index');
+            Route::post('start', 'start');
+            Route::put('end', 'end');
+            Route::post('break-start', 'breakStart');
+            Route::put('break-end', 'breakEnd');
+        });
+        Route::prefix('attendance')->group(function() {
+            Route::get('{date?}', 'date');
+        });
     });
 });

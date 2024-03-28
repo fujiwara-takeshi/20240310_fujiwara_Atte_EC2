@@ -4,9 +4,9 @@
 <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 @endsection
 
-@section('header__nav')
-<nav class="header__nav">
-    <ul class="header__nav-list">
+@section('header-nav')
+<nav class="header-nav">
+    <ul class="header-nav__list">
         <li class="header-nav__item"><a href="/">ホーム</a></li>
         <li class="header-nav__item"><a href="/attendance">日付一覧</a></li>
         <li class="header-nav__item">
@@ -20,13 +20,13 @@
 @endsection
 
 @section('content')
-<div class="index">
-    <div class="index__inner">
-        <div class="index__wrapper">
-            <div class="index__heading">
+<div class="content">
+    <div class="content__inner">
+        <div class="content__wrapper">
+            <div class="content__heading">
                 <h2 class="heading__text">{{ $user['name'] }}さんお疲れ様です！</h2>
             </div>
-            <div class="index__stamps">
+            <div class="content__stamps">
                 <div class="stamps__block">
                     <div class="stamp__box">
                         <form class="stamp__form" action="/start" method="post">
