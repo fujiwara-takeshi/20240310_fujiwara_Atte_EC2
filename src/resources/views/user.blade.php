@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/bootstrap-4.css') }}">
-<link rel="stylesheet" href="{{ asset('css/date.css') }}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<link rel="stylesheet" href="{{ asset('css/user.css') }}">
 @endsection
 
 @section('header-nav')
@@ -25,39 +25,15 @@
 <div class="content">
     <div class="content__inner">
         <div class="content__wrapper">
-            <div class="content__heading-pagination">
-                <nav>
-                    <ul class="pagination_date">
-                        {{-- Previous Page Link --}}
-                        @if ($key == 0)
-                            <li class="page-item disabled" aria-disabled="true">
-                                <span class="page-link"><</span>
-                            </li>
-                        @else
-                            <li class="page-item">
-                                <a class="page-link" href="/attendance/{{$key - 1}}"><</a>
-                            </li>
-                        @endif
-
-                        <li class="selected_date">{{ $selected_date }}</li>
-
-                        {{-- Next Page Link --}}
-                        @if ($key == $dates_count - 1)
-                            <li class="page-item disabled"  aria-disabled="true">
-                                <span class="page-link">></span>
-                            </li>
-                        @else
-                            <li class="page-item">
-                                <a class="page-link" href="/attendance/{{$key + 1}}">></a>
-                            </li>
-                        @endif
-                    </ul>
-                </nav>
+            <div class="content__heading">
+                <h2 class="heading__user-name">
+                    {{ $user_name }}
+                </h2>
             </div>
             <div class="content__attendance-records">
                 <table class="attendance__table">
                     <tr class="table__row">
-                        <th>名前</th>
+                        <th>勤務日</th>
                         <th>勤務開始</th>
                         <th>勤務終了</th>
                         <th>休憩時間</th>
@@ -65,7 +41,7 @@
                     </tr>
                     @foreach($attendances as $attendance)
                         <tr class="table__row">
-                            <td>{{ $attendance->user->name }}</td>
+                            <td>{{ $attendance->date }}</td>
                             <td>{{ $attendance->start_time->format('H:i:s') }}</td>
                             <td>{{ $attendance->end_time ? $attendance->end_time->format('H:i:s') : '' }}</td>
                             <td>{{ $attendance->break_time }}</td>

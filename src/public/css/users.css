@@ -36,33 +36,35 @@
     margin: 0 auto;
 }
 
-.content__heading-pagination {
+.content__heading-search {
     width: 100%;
-    padding: 34px 0 26px;
+    padding: 34px 0;
     text-align: center;
 }
 
-.pagination_date {
-    display: inline-flex;
-    align-items: center;
+.search-form__item-input {
+    width: 40%;
+    padding: 8px;
+    margin-right: 8px;
+    font-size: 14px;
+    background-color: inherit;
+    border: 1px solid #8a8a8a;
 }
 
-.pagination_date .page-link {
-    padding: 0px 8px 2px;
-    font-size: 12px;
-    border-color: rgb(142, 142, 255);
+.search-form__item-button {
+    padding: 8px;
+    font-size: 14px;
+    color: #ffffff;
+    background-color: #444444;
+    border: none;
+    cursor: pointer;
 }
 
-.selected_date {
-    padding: 0 30px;
-    font-size: 20px;
-}
-
-.content__attendance-records {
+.content__user-list {
     width: 100%;
 }
 
-.attendance__table {
+.users__table {
     width: 100%;
 }
 
@@ -74,8 +76,13 @@
 
 .table__row th,
 .table__row td {
-    width: 20%;
+    width: 40%;
     padding: 20px 0 20px 30px;
+}
+
+.table__row th:last-of-type,
+.table__row td:last-of-type {
+    width: 60%;
 }
 
 .content__bottom-pagination {
