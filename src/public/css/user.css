@@ -36,24 +36,13 @@
     margin: 0 auto;
 }
 
-.content__heading-pagination {
+.content__heading {
     width: 100%;
-    padding: 34px 0 26px;
+    padding: 34px 0 40px;
     text-align: center;
 }
 
-.pagination_date {
-    display: inline-flex;
-    align-items: center;
-}
-
-.pagination_date .page-link {
-    padding: 0px 8px 2px;
-    font-size: 12px;
-    border-color: rgb(142, 142, 255);
-}
-
-.selected_date {
+.heading__user-name {
     padding: 0 30px;
     font-size: 20px;
 }

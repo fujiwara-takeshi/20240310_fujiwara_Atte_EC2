@@ -101,8 +101,15 @@ class AttendanceController extends Controller
         $dates = Attendance::distinct()->select('date')->orderBy('date','desc')->pluck('date');
         $dates_count = count($dates);
         $selected_date = $dates[$key];
-        $attendances = Attendance::where('date', $selected_date)->with('user', 'breakTimes')->orderBy('start_time','desc')->Paginate(5);
+        $attendances = Attendance::where('date', $selected_date)->with('user', 'breakTimes')->orderBy('start_time', 'desc')->paginate(5);
         return view('date', compact('key', 'dates_count', 'selected_date', 'attendances'));
+    }
+
+    public function user($id)
+    {
+        $attendances = Attendance::where('user_id', $id)->with('breakTimes')->orderBy('start_time', 'desc')->paginate(5);
+        $user_name = User::find($id)->name;
+        return view('user', compact('attendances', 'user_name'));
     }
 
     public function attendanceStatus($attendance)
