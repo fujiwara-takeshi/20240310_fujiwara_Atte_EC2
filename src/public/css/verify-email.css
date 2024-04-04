@@ -1,0 +1,49 @@
+.content {
+    width: 100%;
+    margin-top: 80px;
+}
+
+.content__inner {
+    max-width: 1230px;
+    margin: 0 auto;
+}
+
+.content__wrapper {
+    width: 40%;
+    padding-top: 40px;
+    margin: 0 auto;
+}
+
+.content__heading {
+    width: 100%;
+    padding: 10px 0 50px;
+    text-align: center;
+}
+
+.heading__title {
+    font-size: 24px;
+}
+
+.content__retransmission-form {
+    width: 100%;
+    text-align: center;
+}
+
+.form {
+    width: 100%;
+}
+
+.form__information {
+    margin: 0;
+    font-size: 14px;
+    color: #8a8a8a;
+}
+
+.form__item-button {
+    font-size: 14px;
+    color: #0000ff;
+    text-decoration: none;
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+}
