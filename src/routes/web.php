@@ -15,7 +15,7 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth', 'verified')->group(function () {
     Route::prefix('/')->group(function() {
         Route::get('', [AttendanceController::class, 'index']);
         Route::post('start', [AttendanceController::class, 'start']);
