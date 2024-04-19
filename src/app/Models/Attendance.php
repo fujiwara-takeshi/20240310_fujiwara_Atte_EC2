@@ -33,7 +33,7 @@ class Attendance extends Model
     {
         $break_seconds = 0;
         foreach ($this->breakTimes as $break) {
-            if ($break->end_time) {
+            if ($break->end_time && $this->end_time) {
                 $break_seconds += $break->end_time->diffInSeconds($break->start_time);
             }
         }
