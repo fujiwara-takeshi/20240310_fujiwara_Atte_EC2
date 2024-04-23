@@ -3,20 +3,37 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Pagination\Paginator;
-use App\Models\User;
+use App\Services\AttendanceService;
+use App\Services\UserService;
 
 class UserController extends Controller
 {
-    public function users()
+    private $attendanceService;
+    private $userService;
+
+    public function __construct(
+        AttendanceService $attendanceService,
+        UserService $userService
+    ){
+        $this->attendanceService = $attendanceService;
+        $this->userService = $userService;
+    }
+
+    public function users(Request $request)
     {
-        $users = User::paginate(5);
+        if ($request->has('keyword')) {
+            $users = $this->userService->searchUsers($request->keyword);
+            $users = $users->appends($request->input());
+            return view('users', compact('users'));
+        }
+        $users = $this->userService->getUsers();
         return view('users', compact('users'));
     }
 
-    public function search(Request $request)
+        public function user($user_id)
     {
-        $users = User::KeywordSearch($request->keyword)->paginate(5)->appends($request->input());
-        return view('users', compact('users'));
+        $attendances = $this->attendanceService->getAttendancesByUser($user_id);
+        $user_name = $this->userService->getUserName($user_id);
+        return view('user', compact('attendances', 'user_name'));
     }
 }
