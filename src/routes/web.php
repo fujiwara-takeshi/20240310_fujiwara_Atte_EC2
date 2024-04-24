@@ -23,7 +23,7 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::post('break-start', [BreakTimeController::class, 'start'])->name('break.start');
     Route::patch('break-end', [BreakTimeController::class, 'end'])->name('break.end');
 
-    Route::get('attendance/{date?}', [AttendanceController::class ,'date'])->name('attendance.date.show');
+    Route::get('attendance/{date_key?}', [AttendanceController::class ,'date'])->name('attendance.date.show');
 
     Route::prefix('users')->group(function() {
         Route::get('/', [UserController::class, 'users'])->name('users.show');

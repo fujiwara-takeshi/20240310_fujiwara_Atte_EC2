@@ -44,12 +44,12 @@ class AttendanceController extends Controller
         return redirect()->route('attendance.index');
     }
 
-    public function date($key = "0")
+    public function date($date_key = "0")
     {
         $dates = $this->attendanceService->getDistinctDates();
         $dates_count = count($dates);
-        $selected_date = $dates[$key];
+        $selected_date = $dates[$date_key];
         $attendances = $this->attendanceService->getAttendancesByDate($selected_date);
-        return view('date', compact('key', 'dates_count', 'selected_date', 'attendances'));
+        return view('date', compact('date_key', 'dates_count', 'selected_date', 'attendances'));
     }
 }
