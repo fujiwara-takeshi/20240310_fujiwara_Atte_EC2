@@ -6,19 +6,7 @@
 @endsection
 
 @section('header-nav')
-<nav class="header-nav">
-    <ul class="header-nav__list">
-        <li class="header-nav__item"><a href="/">ホーム</a></li>
-        <li class="header-nav__item"><a href="/attendance">日付一覧</a></li>
-        <li class="header-nav__item"><a href="/users">社員一覧</a></li>
-        <li class="header-nav__item">
-            <form action="/logout" method="post">
-                @csrf
-                <button class="header-nav__logout-button">ログアウト</button>
-            </form>
-        </li>
-    </ul>
-</nav>
+    @include('components.header-nav')
 @endsection
 
 @section('content')
@@ -26,7 +14,7 @@
     <div class="content__inner">
         <div class="content__wrapper">
             <div class="content__heading-search">
-                <form class="search-form" action="/users/search" method="get">
+                <form class="search-form" action="{{ route('users.show') }}" method="get">
                     @csrf
                     <input class="search-form__item-input" type="text" name="keyword" placeholder="名前・メールアドレスで検索">
                     <button class="search-form__item-button" type="submit">検索</button>
@@ -46,10 +34,17 @@
                     @endforeach
                 </table>
             </div>
-            <div class="content__bottom-pagination">
+            <div class="content__pagination">
                 <div class="pagination-users">
                     {{ $users->links('vendor.pagination.bootstrap-4') }}
                 </div>
+            </div>
+            <div class="content__alert">
+                @if ($errors->any())
+                    <div class="alert">
+                        {{ $errors->first() }}
+                    </div>
+                @endif
             </div>
         </div>
     </div>

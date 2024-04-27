@@ -14,7 +14,9 @@
     <header class="header">
         <div class="header__inner">
             <div class="header__inner-left">
-                <div class="header__logo">Atte</div>
+                <div class="header__logo">
+                    <a class="header__logo-link"href="{{ route('attendance.index') }}">Atte</a>
+                </div>
             </div>
             <div class="header__inner-right">
                 @yield('header-nav')

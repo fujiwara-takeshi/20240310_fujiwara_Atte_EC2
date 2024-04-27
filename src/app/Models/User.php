@@ -42,6 +42,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    //キーワードでユーザー情報を検索
     public function scopeKeywordSearch($query, $keyword)
     {
         if (!empty($keyword)) {

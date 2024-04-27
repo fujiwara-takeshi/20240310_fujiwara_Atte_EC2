@@ -5,19 +5,7 @@
 @endsection
 
 @section('header-nav')
-<nav class="header-nav">
-    <ul class="header-nav__list">
-        <li class="header-nav__item"><a href="/">ホーム</a></li>
-        <li class="header-nav__item"><a href="/attendance">日付一覧</a></li>
-        <li class="header-nav__item"><a href="/users">社員一覧</a></li>
-        <li class="header-nav__item">
-            <form action="/logout" method="post">
-                @csrf
-                <button class="header-nav__logout-button">ログアウト</button>
-            </form>
-        </li>
-    </ul>
-</nav>
+    @include('components.header-nav')
 @endsection
 
 @section('content')
@@ -30,9 +18,9 @@
             <div class="content__stamps">
                 <div class="stamps__block">
                     <div class="stamp__box">
-                        <form class="stamp__form" action="/start" method="post">
+                        <form class="stamp__form" action="{{ route('attendance.start') }}" method="post">
                             @csrf
-                            @if($attendanceStatus)
+                            @if($attendance_status)
                                 <button class="stamp__button">勤務開始</button>
                             @else
                                 <button class="stamp__button" disabled>勤務開始</button>
@@ -40,13 +28,13 @@
                         </form>
                     </div>
                     <div class="stamp__box">
-                        <form class="stamp__form" action="/end" method="post">
+                        <form class="stamp__form" action="{{ route('attendance.end') }}" method="post">
                             @csrf
-                            @method('put')
-                            @if($attendanceStatus || $breakStatus)
+                            @method('patch')
+                            @if($attendance_status || $break_status)
                                 <button class="stamp__button" disabled>勤務終了</button>
                             @else
-                                <input type="hidden" name="id" value="{{ $attendance['id'] }}">
+                                <input type="hidden" name="attendance_id" value="{{ $attendance['id'] }}">
                                 <button class="stamp__button">勤務終了</button>
                             @endif
                         </form>
@@ -54,9 +42,9 @@
                 </div>
                 <div class="stamps__block">
                     <div class="stamp__box">
-                        <form class="stamp__form" action="/break-start" method="post">
+                        <form class="stamp__form" action="{{ route('break.start') }}" method="post">
                             @csrf
-                            @if($attendanceStatus || $breakStatus)
+                            @if($attendance_status || $break_status)
                                 <button class="stamp__button" disabled>休憩開始</button>
                             @else
                                 <input type="hidden" name="attendance_id" value="{{ $attendance['id'] }}">
@@ -65,11 +53,11 @@
                         </form>
                     </div>
                     <div class="stamp__box">
-                        <form class="stamp__form" action="/break-end" method="post">
+                        <form class="stamp__form" action="{{ route('break.end') }}" method="post">
                             @csrf
-                            @method('put')
-                            @if($breakStatus)
-                                <input type="hidden" name="id" value="{{ $break['id'] }}">
+                            @method('patch')
+                            @if($break_status)
+                                <input type="hidden" name="break_id" value="{{ $break['id'] }}">
                                 <input type="hidden" name="attendance_id" value="{{ $attendance['id'] }}">
                                 <button class="stamp__button">休憩終了</button>
                             @else
@@ -78,6 +66,17 @@
                         </form>
                     </div>
                 </div>
+            </div>
+            <div class="content__alert">
+                @if (session('success'))
+                    <div class="alert alert--success">
+                        {{ session('success') }}
+                    </div>
+                @elseif ($errors->any())
+                    <div class="alert alert--danger">
+                        {{ $errors->first() }}
+                    </div>
+                @endif
             </div>
         </div>
     </div>

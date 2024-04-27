@@ -16,9 +16,15 @@
     align-items: center;
 }
 
-.header__logo {
+.header__logo-link {
     font-size: 30px;
     font-weight: bold;
+    color: inherit;
+    text-decoration: none;
+}
+
+.header__logo-link:hover {
+    color: inherit;
 }
 
 .main {

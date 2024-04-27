@@ -85,7 +85,7 @@
     width: 60%;
 }
 
-.content__bottom-pagination {
+.content__pagination {
     width: 100%;
     padding: 30px 0 0;
     text-align: center;
@@ -93,4 +93,13 @@
 
 .pagination {
     display: inline-flex;
+}
+
+.content__alert {
+    text-align: center;
+}
+
+.alert {
+    font-size: 20px;
+    color: red;
 }
