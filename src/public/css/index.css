@@ -84,3 +84,19 @@
 .stamp__button:disabled {
     cursor: not-allowed;
 }
+
+.content__alert {
+    text-align: center;
+}
+
+.alert {
+    font-size: 20px;
+}
+
+.alert--success {
+    color: rgb(0, 202, 0);
+}
+
+.alert--danger {
+    color: red;
+}

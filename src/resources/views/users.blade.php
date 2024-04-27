@@ -34,10 +34,17 @@
                     @endforeach
                 </table>
             </div>
-            <div class="content__bottom-pagination">
+            <div class="content__pagination">
                 <div class="pagination-users">
                     {{ $users->links('vendor.pagination.bootstrap-4') }}
                 </div>
+            </div>
+            <div class="content__alert">
+                @if ($errors->any())
+                    <div class="alert">
+                        {{ $errors->first() }}
+                    </div>
+                @endif
             </div>
         </div>
     </div>

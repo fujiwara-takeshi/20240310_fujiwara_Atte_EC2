@@ -67,6 +67,17 @@
                     </div>
                 </div>
             </div>
+            <div class="content__alert">
+                @if (session('success'))
+                    <div class="alert alert--success">
+                        {{ session('success') }}
+                    </div>
+                @elseif ($errors->any())
+                    <div class="alert alert--danger">
+                        {{ $errors->first() }}
+                    </div>
+                @endif
+            </div>
         </div>
     </div>
 </div>

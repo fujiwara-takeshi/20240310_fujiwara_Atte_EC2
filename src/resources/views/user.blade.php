@@ -15,7 +15,7 @@
         <div class="content__wrapper">
             <div class="content__heading">
                 <h2 class="heading__user-name">
-                    {{ $user_name }}
+                    {{ $selected_user->name }}
                 </h2>
             </div>
             <div class="content__attendance-records">
@@ -38,7 +38,7 @@
                     @endforeach
                 </table>
             </div>
-            <div class="content__bottom-pagination">
+            <div class="content__pagination">
                 <div class="pagination-attendances">
                     {{ $attendances->links('vendor.pagination.bootstrap-4') }}
                 </div>
