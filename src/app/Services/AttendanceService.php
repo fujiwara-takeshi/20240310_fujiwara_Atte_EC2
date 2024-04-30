@@ -33,8 +33,7 @@ class AttendanceService
     //ログイン中のユーザー情報を引数に取り、勤務開始処理を実行する
     public function start($user_id)
     {
-        // $current_datetime = Carbon::now();
-        $current_datetime = Carbon::parse('2024-05-01 09:00:00');
+        $current_datetime = Carbon::now();
         $data = [
             'user_id' => $user_id,
             'date' => $current_datetime->toDateString(),
@@ -47,7 +46,6 @@ class AttendanceService
     public function end($attendance, $user_id)
     {
         $current_datetime = Carbon::now();
-        $current_datetime = Carbon::parse('2024-05-05 17:00:00');
         $start_datetime = Carbon::parse($attendance->start_time)->startOfDay();
         $diff_in_days = $current_datetime->copy()->startOfDay()->diffInDays($start_datetime);
         if ($diff_in_days === 0) { /* 勤務が１日のみの場合の勤務終了処理 */

@@ -30,8 +30,7 @@ class BreakTimeService
     //勤務情報のidを引数に取り、紐づいた休憩の開始処理を実行する
     public function start($attendance_id)
     {
-        // $current_datetime = Carbon::now();
-        $current_datetime = Carbon::parse('2024-05-03 15:00:00');
+        $current_datetime = Carbon::now();
         $data = [
             'attendance_id' => $attendance_id,
             'start_time' => $current_datetime,
@@ -43,7 +42,6 @@ class BreakTimeService
     public function end($break, $attendance_id)
     {
         $current_datetime = Carbon::now();
-        $current_datetime = Carbon::parse('2024-05-05 12:00:00');
         $start_datetime = Carbon::parse($break->start_time)->startOfDay();
         $diff_in_days = $current_datetime->copy()->startOfDay()->diffInDays($start_datetime);
         if ($diff_in_days === 0) { /* 休憩が１日内に収まる場合の休憩終了処理 */

@@ -71,7 +71,7 @@ class AttendanceController extends Controller
         $dates = $this->attendanceService->getDistinctDates();
         $verification_date_key = $this->attendanceService->verifyDateKey($date_key, $dates);
         if (!isset($verification_date_key['success'])) { /* $datesに対し$date_keyが有効な整数かを検証 */
-            return redirect()->route('attendance.date.show')->withErrors(['message' => $verification_date_key['error']]);
+            return redirect()->back()->withErrors(['message' => $verification_date_key['error']]);
         }
         $selected_date = $dates[$date_key];
         $dates_count = count($dates);
