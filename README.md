@@ -16,9 +16,14 @@
 　５．srcディレクトリに移動</br>
  　　`cd /var/www/laravel/20240310_fujiwara_Atte_EC2/src`</br>
 　６．「.env」ファイルの以下の環境変数を変更（gmailの場合）</br>
+　　`MAIL_MAILER=smtp`</br>
+　　`MAIL_HOST=smtp.gmail.com`</br>
+　　`MAIL_PORT=587`</br>
 　　`MAIL_USERNAME=送信元に設定するgmailのアドレス`</br>
-　　`MAIL_FROM_ADDRESS=同上`</br>
 　　`MAIL_PASSWORD=gmailアカウントのアプリパスワード`</br>
+　　`MAIL_ENCRYPTION=tls`</br>
+　　`MAIL_FROM_ADDRESS=送信元に設定するgmailのアドレス`</br>
+　　`MAIL_FROM_NAME="Atte"`</br>
   
   ※アプリパスワードの発行方法は以下のWebサイトを参照願います。</br>
 　　https://qiita.com/koru1893/items/e30d19ac97eac59b1e19</br>
