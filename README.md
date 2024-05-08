@@ -5,6 +5,25 @@
 ## 作成目的
 　社員の勤怠管理・人事評価のため
 
+## 環境構築
+#### 認証メールサーバー設定
+　１．AWSのEC2サーバーログイン用のペアキー[Atte_keypair.pem]を任意のフォルダに配置</br>
+　２．ターミナルからペアキーのあるディレクトリに移動</br>
+　３．ペアキーの権限設定</br>
+ 　　`chmod 400 "Atte_keypair.pem"`</br>
+　４．EC2サーバーログイン</br>
+ 　　`ssh -i "Atte_keypair.pem" ec2-user@ec2-54-248-30-178.ap-northeast-1.compute.amazonaws.com`</br>
+　５．srcディレクトリに移動</br>
+ 　　`cd /var/www/laravel/20240310_fujiwara_Atte_EC2/src`</br>
+　６．「.env」ファイルの以下の環境変数を変更（gmailの場合）</br>
+　　`MAIL_USERNAME=送信元に設定するgmailのアドレス`</br>
+　　`MAIL_FROM_ADDRESS=同上`</br>
+　　`MAIL_PASSWORD=gmailアカウントのアプリパスワード`</br>
+  
+  ※アプリパスワードの発行方法は以下のWebサイトを参照願います。</br>
+　　https://qiita.com/koru1893/items/e30d19ac97eac59b1e19</br>
+  ※現状は開発者のgmailアカウントを設定しています。</br>
+  
 ## 利用手順
 　１．下記URLにアクセス</br>
 　　http://54.248.30.178</br>
@@ -17,9 +36,6 @@
 #### ※ご注意事項</br>
 　現在上記URLにはWeb上のどこからでもアクセスできる状態になっております。</br>
 　セキュリティ上のリスクが伴いますので、社内ネットワーク等に組み込んでの運用を推奨いたします。</br>
-
-## その他のリポジトリ等
-　特になし
 
 ## 機能一覧
 　・ユーザーログイン機能</br>
@@ -46,11 +62,7 @@
 ## ER図
 ![スクリーンショット 2024-05-08 172017](https://github.com/fujiwara-takeshi/20240310_fujiwara_Atte_EC2/assets/151005520/802c7692-b862-4dc0-a087-d744a5e929af)
 
-## 環境構築
-#### 認証メールサーバー設定
-　１．AWSのEC2サーバーログイン用のペアキー[Atte_keypair.pem]を任意のフォルダに配置</br>
-　２．ターミナルからペアキーのあるディレクトリに移動</br>
-　３．`chmod 400 "Atte_keypair.pem"`実行</br>
-　４．`ssh -i "Atte_keypair.pem" ec2-user@ec2-54-248-30-178.ap-northeast-1.compute.amazonaws.com`実行</br>
-　５．
-　
+## その他
+　AWSサーバーの保守管理に必要な下記項目については別途お打ち合わせを要します。</br>
+　・EC2サーバーログイン用キーペア[Atte_keypair.pem]の譲渡</br>
+　・AWS IAMユーザー登録設定</br>
