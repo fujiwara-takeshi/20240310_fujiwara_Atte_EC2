@@ -51,6 +51,6 @@
 　１．AWSのEC2サーバーログイン用のペアキー[Atte_keypair.pem]を任意のフォルダに配置</br>
 　２．ターミナルからペアキーのあるディレクトリに移動</br>
 　３．`chmod 400 "Atte_keypair.pem"`実行</br>
-　４．`ssh -i "Atte_keypair.pem" ec2-user@ec2-54-248-30-178.ap-northeast-1.compute.amazonaws.com`実行し、EC2サーバーログイン</br>
+　４．`ssh -i "Atte_keypair.pem" ec2-user@ec2-54-248-30-178.ap-northeast-1.compute.amazonaws.com`実行</br>
 　５．
 　
