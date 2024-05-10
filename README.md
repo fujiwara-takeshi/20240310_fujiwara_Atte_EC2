@@ -12,7 +12,7 @@
 　３．ペアキーの権限設定</br>
  　　`chmod 400 "Atte_keypair.pem"`</br>
 　４．EC2サーバーログイン</br>
- 　　`ssh -i "Atte_keypair.pem" ec2-user@ec2-54-248-30-178.ap-northeast-1.compute.amazonaws.com`</br>
+ 　　`ssh -i "Atte_keypair.pem" ec2-user@ec2-13-115-189-150.ap-northeast-1.compute.amazonaws.com`</br>
 　５．srcディレクトリに移動</br>
  　　`cd /var/www/laravel/20240310_fujiwara_Atte_EC2/src`</br>
 　６．「.env」ファイルの以下の環境変数を変更（gmailの場合）</br>
@@ -31,7 +31,7 @@
   
 ## 利用手順
 　１．下記URLにアクセス</br>
-　　http://54.248.30.178</br>
+　　http://13.115.189.150</br>
 　２．ユーザー新規登録ページにて登録処理</br>
 　３．登録メールアドレス宛に確認メールが届くので、認証する</br>
 　４．自動的に打刻ページに遷移し、ご利用いただけます</br>
