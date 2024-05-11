@@ -24,6 +24,11 @@
 　　`MAIL_ENCRYPTION=tls`</br>
 　　`MAIL_FROM_ADDRESS=送信元に設定するgmailのアドレス`</br>
 　　`MAIL_FROM_NAME="Atte"`</br>
+  ７．キャッシュの削除</br>
+　　`cd ../`</br>
+　　`docker-compose exec php bash`</br>
+　　`php artisan config:cache`</br>
+　　`php artisan cache:clear`</br>
   
   ※アプリパスワードの発行方法は以下のWebサイトを参照願います。</br>
 　　https://qiita.com/koru1893/items/e30d19ac97eac59b1e19</br>
